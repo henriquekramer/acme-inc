@@ -13,18 +13,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--title-color)
+  color: var(--title-color);
+  
 }
 
 .menu {
   display: flex;
   align-items: center;
   text-align: center;
-  :hover {
-    color: var(--base-color);
-  }
 
   li {
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--base-color);
+    }
 
     & + li {
       margin-left: 2rem;
