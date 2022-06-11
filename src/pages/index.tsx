@@ -6,8 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>Início | Acme Inc.</title>
-      </Head>
-      <h3>Página Home</h3>      
+      </Head>     
     
     </>
   )
