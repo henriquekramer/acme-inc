@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { api } from '../services/api';
 import { formatPrice } from '../util/format';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { useCart } from '../hooks/useCart';
 
 interface Product {
   id: number;
@@ -16,8 +17,20 @@ interface ProductFormatted extends Product {
   priceFormatted: string;
 }
 
+interface CartItemsAmount {
+  [key: number]: number;
+}
+
 export default function Home() {
   const [products, setProducts] = useState<ProductFormatted[]>([]);
+  const { addProduct, cart } = useCart();
+
+  const cartItemsAmount = cart.reduce((sumAmount, product) => {
+    const newSumAmount = {...sumAmount};
+    newSumAmount[product.id] = product.amount;
+
+    return newSumAmount;
+  }, {} as CartItemsAmount)
 
   useEffect(() => {
     async function loadProducts() {
@@ -41,6 +54,10 @@ export default function Home() {
   //   return products.filter(product => product.title.toLowerCase().includes(lowerCaseFilter))
   // }, [busca]) 
   const filteredProducts = products.filter(product => product.title.toLowerCase().includes(lowerCaseFilter))
+
+  function handleAddProduct(id: number) {
+    addProduct(id)
+  }
 
   return (
     <>
@@ -67,11 +84,11 @@ export default function Home() {
             <button
               type="button"
               data-testid="add-product-button"
-              // onClick={() => handleAddProduct(product.id)}
+              onClick={() => handleAddProduct(product.id)}
             >
               <div data-testid="cart-product-quantity">
                 <AiOutlineShoppingCart size={20} color="#FFF" />
-                {/* {cartItemsAmount[product.id] || 0}  */}
+                {cartItemsAmount[product.id] || 0} 
               </div>
 
               <span>ADICIONAR AO CARRINHO</span>

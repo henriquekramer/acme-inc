@@ -1,8 +1,12 @@
 import styles from './styles.module.scss'
 import { AiFillHeart } from 'react-icons/ai'
 import { MdShoppingBasket } from 'react-icons/md';
+import { useCart } from '../../hooks/useCart';
 
 export function Header() {
+  const { cart } = useCart();
+  const cartSize = cart.length;
+
   return (
     <header className={styles.header}>
       <nav className={styles.container}>
@@ -17,7 +21,7 @@ export function Header() {
             <li className={styles.myCart}>
               <div>
                 <a href="#">Meu Carrinho</a>
-                <small>2 items</small>
+                <small>{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</small>
               </div>
               <MdShoppingBasket size={36}/>
             </li>
