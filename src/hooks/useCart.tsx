@@ -1,6 +1,8 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../services/api';
+import { setCookie, parseCookies } from "nookies";
+import { GetServerSideProps, GetStaticProps } from 'next';
 
 interface CartProviderProps {
   children: ReactNode;
@@ -29,16 +31,14 @@ interface Product {
 const CartContext = createContext<CartContextData>({} as CartContextData)
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<Product[]>(() => {
-    if(typeof window !== 'undefined'){
-      const storagedCart = localStorage.getItem('AcmeInc:cart');
+  const { AcmeIncCart } = parseCookies()
 
-      if(storagedCart) {
-        return JSON.parse(storagedCart)
-      }
+  const [cart, setCart] = useState<Product[]>(() => { 
+    if(AcmeIncCart){
+      return JSON.parse(AcmeIncCart)
     }
     return []
-  });
+  })
 
   const addProduct = async(productId: number) => {
     try {
@@ -67,7 +67,10 @@ export function CartProvider({ children }: CartProviderProps) {
       }
 
       setCart(updatedCart);
-      localStorage.setItem('@AcmeInc:cart', JSON.stringify(updatedCart))
+      setCookie(null, 'AcmeIncCart', JSON.stringify(updatedCart), {
+        maxAge: 60 * 60 * 24 * 30, 
+        path: '/' 
+      })
     } catch {
       toast.error('Erro na adição do produto');
     }
@@ -81,7 +84,10 @@ export function CartProvider({ children }: CartProviderProps) {
       if(productIndex >= 0){
         updatedCart.splice(productIndex, 1)
         setCart(updatedCart);
-        localStorage.setItem('@AcmeInc:cart', JSON.stringify(updatedCart))
+        setCookie(null, 'AcmeIncCart', JSON.stringify(updatedCart), {
+          maxAge: 60 * 60 * 24 * 30, 
+          path: '/' 
+        })
       } else {
         throw Error();
       }
@@ -113,7 +119,10 @@ export function CartProvider({ children }: CartProviderProps) {
       if(productExists) {
         productExists.amount = amount;
         setCart(updatedCart);
-        localStorage.setItem('@AcmeInc:cart', JSON.stringify(updatedCart))
+        setCookie(null, 'AcmeIncCart', JSON.stringify(updatedCart), {
+          maxAge: 60 * 60 * 24 * 30, 
+          path: '/' 
+        })
       } else {
         throw Error();
       }

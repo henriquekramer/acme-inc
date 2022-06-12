@@ -1,19 +1,17 @@
 import styles from './home.module.scss'
 import Head from 'next/head'
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { api } from '../services/api';
 import { formatPrice } from '../util/format';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { useCart } from '../hooks/useCart';
+import { GetStaticProps } from 'next';
 
 interface Product {
   id: number;
   title: string;
   price: number;
   image: string;
-}
-
-interface ProductFormatted extends Product {
   priceFormatted: string;
 }
 
@@ -21,8 +19,11 @@ interface CartItemsAmount {
   [key: number]: number;
 }
 
-export default function Home() {
-  const [products, setProducts] = useState<ProductFormatted[]>([]);
+interface HomeProps {
+  products: Product[];
+}
+
+export default function Home({ products }: HomeProps) {
   const { addProduct, cart } = useCart();
 
   const cartItemsAmount = cart.reduce((sumAmount, product) => {
@@ -32,27 +33,9 @@ export default function Home() {
     return newSumAmount;
   }, {} as CartItemsAmount)
 
-  useEffect(() => {
-    async function loadProducts() {
-     const response = await api.get<Product[]>('products')
-     const data = response.data.map(product => ({
-       ...product,
-       priceFormatted: formatPrice(product.price)
-     }))
-
-     setProducts(data);
-    }
-
-    loadProducts();
-  }, []);
-
   const[busca, setBusca] = useState('')
   const lowerCaseFilter=busca.toLowerCase()
 
-  // const filteredProducts = useMemo(()=> {
-  //   const lowerCaseFilter=busca.toLowerCase()
-  //   return products.filter(product => product.title.toLowerCase().includes(lowerCaseFilter))
-  // }, [busca]) 
   const filteredProducts = products.filter(product => product.title.toLowerCase().includes(lowerCaseFilter))
 
   function handleAddProduct(id: number) {
@@ -99,4 +82,28 @@ export default function Home() {
     
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await api.get<Product[]>('products')
+  const data = response.data.map(product => ({
+    ...product,
+    priceFormatted: formatPrice(product.price)
+  }))
+
+  const products = data.map(product => {
+    return {
+      id: product.id,
+      image: product.image,
+      title: product.title,
+      price: product.price,
+      priceFormatted: product.priceFormatted
+    }
+  })
+
+  return {
+    props: {
+      products
+    }
+  }
 }

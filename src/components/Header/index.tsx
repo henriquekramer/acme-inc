@@ -10,17 +10,17 @@ export function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.container}>
-        <a href="#" className={styles.logo}>Acme <span>Inc</span>.</a>
+        <a href="/" className={styles.logo}>Acme <span>Inc</span>.</a>
         <div >
           <ul className={styles.menu}>
-            <li><a href="#">Início</a></li>
+            <li><a href="/">Início</a></li>
             <li className={styles.myFavorites}>
               <a href="#">Meus Favoritos</a>
               <AiFillHeart size={28}/>
             </li>
             <li className={styles.myCart}>
               <div>
-                <a href="#">Meu Carrinho</a>
+                <a href="/cart">Meu Carrinho</a>
                 <small>{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</small>
               </div>
               <MdShoppingBasket size={36}/>
