@@ -1,0 +1,48 @@
+.footer{
+  background: var(--base-color);
+  padding: 4rem 0;
+  margin-top: 5rem;
+}
+
+.container{
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand {
+  a {
+    display: block;
+    color: var(--title-color);
+    font: 700 2rem var(--title-font);
+    margin-bottom: 0.75rem;
+    span {
+      color: var(--text-color-light)
+    }
+  }
+
+  p {
+    color: var(--text-color-light);
+    margin-bottom: 0.75rem;
+  }
+}
+
+.social {
+  color: var(--text-color-light);
+
+  a {
+  
+    :hover {
+      transition: transform 0.3s;
+      transform: translateY(-8px)
+    }
+
+    & + a {
+      margin-left: 2rem;
+    }
+
+
+  }
+
+}
