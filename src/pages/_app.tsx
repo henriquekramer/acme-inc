@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import { ToastContainer } from 'react-toastify'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Header />
       <Component {...pageProps} />
+      <ToastContainer autoClose={3000}/>
       <Footer/>
     </>
   )
