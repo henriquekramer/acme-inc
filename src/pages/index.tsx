@@ -1,6 +1,6 @@
 import styles from './home.module.scss'
 import Head from 'next/head'
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { api } from '../services/api';
 import { formatPrice } from '../util/format';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
@@ -33,6 +33,14 @@ export default function Home() {
     loadProducts();
   }, []);
 
+  const[busca, setBusca] = useState('')
+  const lowerCaseFilter=busca.toLowerCase()
+
+  // const filteredProducts = useMemo(()=> {
+  //   const lowerCaseFilter=busca.toLowerCase()
+  //   return products.filter(product => product.title.toLowerCase().includes(lowerCaseFilter))
+  // }, [busca]) 
+  const filteredProducts = products.filter(product => product.title.toLowerCase().includes(lowerCaseFilter))
 
   return (
     <>
@@ -42,11 +50,16 @@ export default function Home() {
 
       <div className={styles.searchItem}>
         <h2 >Produtos</h2>
-        <input placeholder='busque aqui seu produto'/>
+        <input
+          type="text"
+          placeholder='busque aqui seu produto'
+          value={busca}
+          onChange={(ev) => setBusca(ev.target.value)}
+        />
       </div>
 
       <ul className={styles.productList}>
-        {products.map(product => (
+        {filteredProducts.map(product => (
           <li key={product.id}>
             <img src={product.image} alt={product.title}/>
             <strong>{product.title}</strong>
