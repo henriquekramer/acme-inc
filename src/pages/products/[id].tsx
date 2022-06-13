@@ -13,14 +13,13 @@ interface CartItemsAmount {
 
 interface Product {
   id: number;
-  description: string;
   title: string;
+  description: string;
   price: number;
   image: string;
   priceFormatted: string
 }
-
-interface ProductProps extends Product {
+interface ProductProps extends Product{
   product: Product;
 }
 
@@ -38,7 +37,7 @@ export default function Product({ product }: ProductProps){
   return (
     <>
       <Head>
-        <title>Produto {product.title}</title>
+        <title>Produto | {product.title}</title>
       </Head>
       <div className={styles.container}>
         <h1>{product.title}</h1>
@@ -85,7 +84,11 @@ export const getStaticProps: GetStaticProps = async(context) => {
 
   const response = await api.get<Product>(`products/${params?.id}`)
   const product = {
-    ...response.data,
+    id: response.data.id,
+    title: response.data.title,
+    description: response.data.description,
+    price: response.data.price,
+    image: response.data.image,
     priceFormatted: formatPrice(response.data.price)
   }
 
