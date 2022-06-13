@@ -40,10 +40,15 @@
     border-radius: 4px;
     padding: 20px;
 
-    img {
+    a{
       align-self: center;
-      max-width: 260px;
-      border-radius: 10px;
+
+      img {
+        align-self: center;
+        max-width: 260px;
+        border-radius: 10px;
+      }
+
     }
 
     > strong {

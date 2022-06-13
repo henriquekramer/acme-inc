@@ -61,7 +61,9 @@ export default function Home({ products }: HomeProps) {
       <ul className={styles.productList}>
         {filteredProducts.map(product => (
           <li key={product.id}>
-            <img src={product.image} alt={product.title}/>
+            <a href={`/products/${product.id}`}>
+              <img src={product.image} alt={product.title}/>
+            </a>
             <strong>{product.title}</strong>
             <span>{product.priceFormatted}</span>
             <button
