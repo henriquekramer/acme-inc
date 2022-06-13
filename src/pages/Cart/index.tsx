@@ -118,7 +118,7 @@ export default function Cart(){
           </tbody>
         </table>
         <footer>
-          <button type="button">Finalizar pedido</button>
+          <button type="button" onClick={()=> alert('Checkout realizado com sucesso!')}>Finalizar pedido</button>
           <div className={styles.total}> 
             <span>TOTAL</span>
             <strong>{total}</strong>
@@ -126,7 +126,5 @@ export default function Cart(){
         </footer>
       </div>
     </>
-
-
   )
 }

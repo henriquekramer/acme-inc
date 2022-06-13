@@ -112,12 +112,16 @@ export const getStaticProps: GetStaticProps = async () => {
   }))
 
   const products = data.map(product => {
+    let nameLength = product.title.split(' ').length
+    let descrLength = product.description.length
+
     return {
       id: product.id,
       image: product.image,
       title: product.title,
       price: product.price,
-      priceFormatted: product.priceFormatted
+      priceFormatted: product.priceFormatted,
+      finalPrice: formatPrice(10 + nameLength * ((500 - descrLength)/ (3 - nameLength)))
     }
   })
 
@@ -127,3 +131,5 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 }
+
+

@@ -82,19 +82,28 @@ export default function Product({ product }: ProductProps){
 export const getStaticProps: GetStaticProps = async(context) => {
   const {params} = context
 
-  const response = await api.get<Product>(`products/${params?.id}`)
-  const product = {
-    id: response.data.id,
-    title: response.data.title,
-    description: response.data.description,
-    price: response.data.price,
-    image: response.data.image,
-    priceFormatted: formatPrice(response.data.price)
-  }
-
-  return {
-    props: {
-      product
+  try {
+    const response = await api.get<Product>(`products/${params?.id}`)
+    const product = {
+      id: response.data.id,
+      title: response.data.title,
+      description: response.data.description,
+      price: response.data.price,
+      image: response.data.image,
+      priceFormatted: formatPrice(response.data.price)
+    }
+  
+    return {
+      props: {
+        product
+      }
+    }
+  }catch(err) {
+    return {
+      redirect: {
+        destination: '/404',
+        permanent: false,
+      }
     }
   }
 }

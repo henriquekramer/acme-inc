@@ -2,6 +2,7 @@ import styles from './styles.module.scss'
 import { AiFillHeart } from 'react-icons/ai'
 import { MdShoppingBasket } from 'react-icons/md';
 import { useCart } from '../../hooks/useCart';
+import { ActiveLink } from '../ActiveLink';
 import Link from 'next/link';
 
 export function Header() {
@@ -17,21 +18,21 @@ export function Header() {
         <div >
           <ul className={styles.menu}>
             <li>
-              <Link href="/">
+              <ActiveLink activeClassName={styles.active} href="/">
                 <a>Início</a>
-              </Link>
+              </ActiveLink>
             </li>
             <li className={styles.myFavorites}>
-              <Link href="/favorites">
+              <ActiveLink activeClassName={styles.active} href="/favorites">
                 <a>Meus Favoritos</a>
-              </Link>
+              </ActiveLink>
               <AiFillHeart size={28}/>
             </li>
             <li className={styles.myCart}>
               <div>
-                <Link href="/cart">
+                <ActiveLink activeClassName={styles.active} href="/cart">
                   <a>Meu Carrinho</a>
-                </Link>
+                </ActiveLink>
                 <small>{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</small>
               </div>
               <MdShoppingBasket size={36}/>
