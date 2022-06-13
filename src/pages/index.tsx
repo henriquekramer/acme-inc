@@ -7,6 +7,7 @@ import { AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useCart } from '../hooks/useCart';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 
 interface Product {
   id: number;
@@ -70,7 +71,7 @@ export default function Home({ products }: HomeProps) {
             <strong>{product.title}</strong>
             <span>
               {product.priceFormatted}
-              <button onClick={() => alert('oi')}>
+              <button onClick={() => toast.success('Produto favoritado')}>
                   <AiFillHeart size={28} />
               </button>
             </span>

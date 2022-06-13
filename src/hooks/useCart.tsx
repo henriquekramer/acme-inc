@@ -71,6 +71,8 @@ export function CartProvider({ children }: CartProviderProps) {
         maxAge: 60 * 60 * 24 * 30, 
         path: '/' 
       })
+      
+      toast.success('Produto adicionado')
     } catch {
       toast.error('Erro na adição do produto');
     }
