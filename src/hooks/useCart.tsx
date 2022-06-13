@@ -31,14 +31,16 @@ interface Product {
 const CartContext = createContext<CartContextData>({} as CartContextData)
 
 export function CartProvider({ children }: CartProviderProps) {
-  const { AcmeIncCart } = parseCookies()
+  
+  useEffect(()=>{
+    const { AcmeIncCart } = parseCookies()
 
-  const [cart, setCart] = useState<Product[]>(() => { 
     if(AcmeIncCart){
-      return JSON.parse(AcmeIncCart)
+      setCart(JSON.parse(AcmeIncCart))
     }
-    return []
-  })
+  },[])
+
+  const [cart, setCart] = useState<Product[]>([])
 
   const addProduct = async(productId: number) => {
     try {
