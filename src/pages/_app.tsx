@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { CartProvider } from '../hooks/useCart'
+import { FavoriteProvider } from '../hooks/useFavorite'
 
 
 import '../styles/global.scss'
@@ -10,12 +11,14 @@ import '../styles/global.scss'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <CartProvider>
-        <Header />
-        <Component {...pageProps} />
-        <ToastContainer autoClose={1500}/>
-        <Footer/>
-      </CartProvider>
+      <FavoriteProvider>
+        <CartProvider>
+          <Header />
+          <Component {...pageProps} />
+          <ToastContainer autoClose={1500}/>
+          <Footer/>
+        </CartProvider>
+      </FavoriteProvider>
     </>
   )
 }

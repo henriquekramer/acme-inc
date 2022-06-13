@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { MdAddCircleOutline, MdDelete, MdRemoveCircleOutline } from "react-icons/md";
 import { useCart } from "../../hooks/useCart";
 import { formatPrice } from "../../util/format";
@@ -60,7 +61,11 @@ export default function Cart(){
             {cartFormatted.map(product => (
               <tr key={product.id} data-testid="product">
                 <td>
-                  <img src={product.image} alt={product.title} />
+                  <Link href={`/products/${product.id}`}>
+                    <a>
+                      <img src={product.image} alt={product.title} />
+                    </a>
+                  </Link>
                 </td>
                 <td>
                   <strong>{product.title}</strong>
@@ -100,7 +105,7 @@ export default function Cart(){
                     data-testid="remove-product"
                     onClick={() => handleRemoveProduct(product.id)}
                   >
-                    <MdDelete size={20} />
+                    <MdDelete size={26} />
                   </button>
                 </td>
               </tr>

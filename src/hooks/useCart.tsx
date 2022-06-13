@@ -2,7 +2,6 @@ import { createContext, ReactNode, useContext, useEffect, useState } from 'react
 import { toast } from 'react-toastify';
 import { api } from '../services/api';
 import { setCookie, parseCookies } from "nookies";
-import { GetServerSideProps, GetStaticProps } from 'next';
 
 interface CartProviderProps {
   children: ReactNode;
@@ -31,7 +30,6 @@ interface Product {
 const CartContext = createContext<CartContextData>({} as CartContextData)
 
 export function CartProvider({ children }: CartProviderProps) {
-  
   useEffect(()=>{
     const { AcmeIncCart } = parseCookies()
 

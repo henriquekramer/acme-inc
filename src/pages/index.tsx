@@ -8,6 +8,7 @@ import { useCart } from '../hooks/useCart';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
+import { useFavorite } from '../hooks/useFavorite';
 
 interface Product {
   id: number;
@@ -27,6 +28,7 @@ interface HomeProps {
 
 export default function Home({ products }: HomeProps) {
   const { addProduct, cart } = useCart();
+  const { addFavorite, favorite} = useFavorite()
 
   const cartItemsAmount = cart.reduce((sumAmount, product) => {
     const newSumAmount = {...sumAmount};
@@ -42,6 +44,10 @@ export default function Home({ products }: HomeProps) {
 
   function handleAddProduct(id: number) {
     addProduct(id)
+  }
+
+  function handleAddFavorite(id: number){
+    addFavorite(id)
   }
 
   return (
@@ -71,7 +77,11 @@ export default function Home({ products }: HomeProps) {
             <strong>{product.title}</strong>
             <span>
               {product.priceFormatted}
-              <button onClick={() => toast.success('Produto favoritado')}>
+              <button 
+                type="button"
+                data-testid="add-favorite-button"
+                onClick={() => handleAddFavorite(product.id)}
+              >
                   <AiFillHeart size={28} />
               </button>
             </span>
