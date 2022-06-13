@@ -49,6 +49,11 @@
         border-radius: 10px;
       }
 
+      button {
+        background: none;
+        color: var(--text-color)
+      }
+
     }
 
     > strong {
@@ -62,6 +67,13 @@
       font-size: 21px;
       font-weight: bold;
       margin: 5px 0 20px;
+      display: flex;
+
+      button {
+        margin-left: 1rem;
+        color: var(--base-color);
+        background: none;
+      }
     }
 
     button { 
@@ -97,6 +109,4 @@
       }
     }
   }
-
 }
-

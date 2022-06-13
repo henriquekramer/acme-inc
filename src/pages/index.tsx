@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useState } from 'react';
 import { api } from '../services/api';
 import { formatPrice } from '../util/format';
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useCart } from '../hooks/useCart';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
@@ -68,7 +68,12 @@ export default function Home({ products }: HomeProps) {
               </a>
             </Link>
             <strong>{product.title}</strong>
-            <span>{product.priceFormatted}</span>
+            <span>
+              {product.priceFormatted}
+              <button onClick={() => alert('oi')}>
+                  <AiFillHeart size={28} />
+              </button>
+            </span>
             <button
               type="button"
               data-testid="add-product-button"
