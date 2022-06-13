@@ -1,7 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { useCart } from "../../hooks/useCart";
+import { useFavorite } from "../../hooks/useFavorite";
 import { api } from "../../services/api"
 import { formatPrice } from "../../util/format";
 import styles from './styles.module.scss'
@@ -25,22 +26,19 @@ interface ProductProps extends Product {
 
 export default function Product({ product }: ProductProps){
   const { addProduct, cart } = useCart();
-
-  const cartItemsAmount = cart.reduce((sumAmount, product) => {
-    const newSumAmount = {...sumAmount};
-    newSumAmount[product.id] = product.amount;
-
-    return newSumAmount;
-  }, {} as CartItemsAmount)
+  const { addFavorite } = useFavorite();
 
   function handleAddProduct(id: number) {
     addProduct(id)
+  }
+  function handleAddFavorite(id: number){
+    addFavorite(id)
   }
 
   return (
     <>
       <Head>
-        <title>Produto {product.id}</title>
+        <title>Produto {product.title}</title>
       </Head>
       <div className={styles.container}>
         <h1>{product.title}</h1>
@@ -50,17 +48,29 @@ export default function Product({ product }: ProductProps){
             <h3>Descrição</h3>
             <p>{product.description}</p>
             <h3>Valor</h3>
-            <strong>{product.priceFormatted}</strong>
+            <strong>
+              {product.priceFormatted}
+            </strong>
             <button
               type="button"
               data-testid="add-product-button"
               onClick={() => handleAddProduct(product.id)}
             >
-              <div data-testid="cart-product-quantity">
+              <div>
                 <AiOutlineShoppingCart size={20} color="#FFF" />
               </div>
 
               <span>ADICIONAR AO CARRINHO</span>
+            </button>
+            <button 
+                type="button"
+                data-testid="add-favorite-button"
+                onClick={() => handleAddFavorite(product.id)}
+              >
+              <div>
+                <AiFillHeart size={20} color="#FFF" />
+              </div>
+                <span>ADICIONAR AOS FAVORITOS</span>
             </button>
           </div>
         </div>

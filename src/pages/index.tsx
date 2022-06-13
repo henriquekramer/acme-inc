@@ -7,7 +7,6 @@ import { AiFillHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { useCart } from '../hooks/useCart';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import { toast } from 'react-toastify';
 import { useFavorite } from '../hooks/useFavorite';
 
 interface Product {
