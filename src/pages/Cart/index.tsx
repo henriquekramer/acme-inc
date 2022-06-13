@@ -46,6 +46,11 @@ export default function Cart(){
       <Head>
         <title>Meu Carrinho | Acme Inc.</title>
       </Head>
+
+      <div className={styles.cartTitle}>
+        <h2>Meus carrinho</h2>
+      </div>
+
       <div className={styles.container}>
         <table className={styles.productTable}>
           <thead>

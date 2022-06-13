@@ -22,7 +22,7 @@ export function Header() {
               </Link>
             </li>
             <li className={styles.myFavorites}>
-              <Link href="#">
+              <Link href="/favorites">
                 <a>Meus Favoritos</a>
               </Link>
               <AiFillHeart size={28}/>

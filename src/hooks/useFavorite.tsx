@@ -73,6 +73,7 @@ export function FavoriteProvider({ children }: FavoriteProviderProps) {
         throw Error();
       }
 
+      toast.success('Produto removido')
     } catch {
       toast.error('Erro na remoção do produto');
     }
