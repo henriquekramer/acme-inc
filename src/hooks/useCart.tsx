@@ -74,7 +74,7 @@ export function CartProvider({ children }: CartProviderProps) {
         path: '/' 
       })
       
-      toast.success('Produto adicionado')
+      toast.success('Produto adicionado ao carrinho')
     } catch {
       toast.error('Erro na adição do produto');
     }

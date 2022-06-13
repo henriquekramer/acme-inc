@@ -95,3 +95,17 @@
     }
   }
 }
+
+.total {
+  display: flex;
+  align-items: baseline;
+
+  span {
+    font-weight: bold;
+  }
+
+  strong {
+    font-size: 28px;
+    margin-left: 5px;
+  }
+}

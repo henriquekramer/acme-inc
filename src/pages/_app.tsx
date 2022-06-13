@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <CartProvider>
         <Header />
         <Component {...pageProps} />
-        <ToastContainer autoClose={3000}/>
+        <ToastContainer autoClose={1500}/>
         <Footer/>
       </CartProvider>
     </>
