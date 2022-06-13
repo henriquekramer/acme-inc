@@ -6,6 +6,7 @@ import { formatPrice } from '../util/format';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { useCart } from '../hooks/useCart';
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 
 interface Product {
   id: number;
@@ -61,9 +62,11 @@ export default function Home({ products }: HomeProps) {
       <ul className={styles.productList}>
         {filteredProducts.map(product => (
           <li key={product.id}>
-            <a href={`/products/${product.id}`}>
-              <img src={product.image} alt={product.title}/>
-            </a>
+            <Link href={`/products/${product.id}`}>
+              <a>
+                <img src={product.image} alt={product.title}/>
+              </a>
+            </Link>
             <strong>{product.title}</strong>
             <span>{product.priceFormatted}</span>
             <button

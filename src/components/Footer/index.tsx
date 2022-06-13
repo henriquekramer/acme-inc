@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineYoutube } from 'react-icons/ai'
 import styles from './styles.module.scss'
 
@@ -6,7 +7,9 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.brand}>
-          <a href="#" className={styles.logo}>Acme <span>Inc</span>.</a>
+          <Link href="#">
+            <a className={styles.logo}>Acme <span>Inc</span>.</a>
+          </Link>
           <p>© 2022 Henrique Kramer</p>
           <p>Todos os direitos reservados.</p>
         </div>
