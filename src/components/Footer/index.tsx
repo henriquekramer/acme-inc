@@ -14,9 +14,9 @@ export function Footer() {
           <p>Todos os direitos reservados.</p>
         </div>
         <div className={styles.social}>
-          <a href="https://instagram.com" ><AiOutlineInstagram size={36}/></a>
-          <a href="https://facebook.com" ><AiOutlineFacebook size={36}/></a>
-          <a href="https://youtube.com" ><AiOutlineYoutube size={36}/></a>
+          <a href="https://instagram.com"><AiOutlineInstagram size={36}/></a>
+          <a href="https://facebook.com"><AiOutlineFacebook size={36}/></a>
+          <a href="https://youtube.com"><AiOutlineYoutube size={36}/></a>
         </div>
       </div>
     </footer>

@@ -95,3 +95,15 @@
     }
   }
 }
+
+@media (max-width: 980px) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .productList {
+    grid-template-columns:  1fr;
+  }
+}

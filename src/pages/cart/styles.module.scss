@@ -123,3 +123,14 @@
     margin-left: 5px;
   }
 }
+
+@media (max-width: 580px) {
+  .container{
+    overflow-x: scroll;
+  }
+
+  .total {
+    margin-left: 1rem;
+  }
+
+}

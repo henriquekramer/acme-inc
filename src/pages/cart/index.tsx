@@ -44,16 +44,16 @@ export default function Cart(){
   function checkout(){
     const checkoutData = cartFormatted.map(product =>{
       return {
-        'Produto': product.title,
-        'Quantidade': product.amount,
-        'Preço Unitário': product.priceFormatted,
-        'SubTotal': product.subTotal,
+        produto: product.title,
+        quantidade: product.amount,
+        preçoUnitário: product.priceFormatted,
+        subTotal: product.subTotal,
       }
     })
 
     const checkoutFinal = {
       ...checkoutData,
-      'Preço Final': total,
+      preçoFinal: total,
     }
 
     console.log(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
@@ -137,7 +137,7 @@ export default function Cart(){
                   </button>
                 </td>
               </tr>
-            )): <h1>Sem produtos no carrinho...</h1>}
+            )): <tr><td><h1>Sem produtos no carrinho...</h1></td></tr> }
           </tbody>
         </table>
         <footer>
