@@ -44,27 +44,31 @@ export default function Cart(){
   function checkout(){
     const checkoutData = cartFormatted.map(product =>{
       return {
-        Produto: product.title,
-        Quantidade: product.amount,
-        PreçoUnitário: product.priceFormatted,
-        SubTotal: product.subTotal,
+        'Produto': product.title,
+        'Quantidade': product.amount,
+        'Preço Unitário': product.priceFormatted,
+        'SubTotal': product.subTotal,
       }
     })
 
     const checkoutFinal = {
       ...checkoutData,
-      PreçoFinal: total,
+      'Preço Final': total,
     }
 
     console.log(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
     alert(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
   }
+
+  const hasItemsInCart = cartFormatted.length > 0 ? true : false
  
   return (
     <>
       <Head>
         <title>Meu Carrinho | Acme Inc.</title>
       </Head>
+
+
 
       <div className={styles.cartTitle}>
         <h2>Meu carrinho</h2>
@@ -82,7 +86,7 @@ export default function Cart(){
             </tr>
           </thead>
           <tbody>
-            {cartFormatted.map(product => (
+            {hasItemsInCart ? cartFormatted.map(product => (
               <tr key={product.id} data-testid="product">
                 <td>
                   <Link href={`/products/${product.id}`}>
@@ -133,7 +137,7 @@ export default function Cart(){
                   </button>
                 </td>
               </tr>
-            ))}
+            )): <h1>Sem produtos no carrinho...</h1>}
           </tbody>
         </table>
         <footer>

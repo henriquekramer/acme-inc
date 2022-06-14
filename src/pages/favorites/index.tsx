@@ -34,18 +34,20 @@ export default function Favorites(){
     addProduct(id)
   }
 
+  const hasFavorite = favoriteFormatted.length > 0 ? true : false
+
   return (
     <>
       <Head>
         <title>Favoritos</title>
       </Head>
-
+       
       <div className={styles.favoritesTitle}>
         <h2>Meus produtos favoritos</h2>
       </div>
 
       <ul className={styles.productList}>
-        {favoriteFormatted.map(product => (
+        {hasFavorite ? favoriteFormatted.map(product => (
           <li key={product.id}>
             <Link href={`/products/${product.id}`}>
               <a>
@@ -76,7 +78,7 @@ export default function Favorites(){
               <span>ADICIONAR AO CARRINHO</span>
             </button>
           </li>
-        ))}
+        )) : <h1>Sem produtos favoritados...</h1>}
       </ul> 
     </>
   )
