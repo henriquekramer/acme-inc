@@ -1,0 +1,106 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 3
+    },
+    {
+      "id": 2,
+      "amount": 5
+    },
+    {
+      "id": 3,
+      "amount": 2
+    },
+    {
+      "id": 4,
+      "amount": 2
+    },
+    {
+      "id": 5,
+      "amount": 5
+    },
+    {
+      "id": 6,
+      "amount": 10
+    }
+    ,
+    {
+      "id": 7,
+      "amount": 2
+    },
+    {
+      "id": 8,
+      "amount": 5
+    },
+    {
+      "id": 9,
+      "amount": 10
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Armário valioso",
+      "description": "eu consequat ac felis donec et odio pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec",
+      "price": 718,
+      "image": "https://i.picsum.photos/id/538/260/260.jpg?hmac=xtN69AisrYRdUjXGdDROSksXV6tqitmPPVl7Ui21CmI"
+    },
+    {
+      "id": 2,
+      "title": "Navio legítimo",
+      "description": "risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus",
+      "price": 618,
+      "image": "https://i.picsum.photos/id/5/260/260.jpg?hmac=O4rPl5cOxjCNt6AmN7N2jHlcXh6eykjFotrGVddaf3I"
+    },
+    {
+      "id": 3,
+      "title": "Mala quente",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, id. Maxime qui tenetur odit nihil sapiente doloremque voluptatibus possimus, rem, modi tempore deserunt corporis non quae, inventore dolore voluptatem mollitia fugit beatae ad dicta impedit explicabo! Maxime illo, aspernatur amet omnis reprehenderit sit corrupti ut consequuntur cum ipsam magni error",
+      "price": 284,
+      "image": "https://i.picsum.photos/id/495/260/260.jpg?hmac=ZHbMzgddOJ7hVAIoCmk72J4skf9nGBfbvlifQ-cl8PY"
+    },
+    {
+      "id": 4,
+      "title": "Revista excelente",
+      "description": "faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas",
+      "price": 292,
+      "image": "https://i.picsum.photos/id/729/260/260.jpg?hmac=jRYxE4gphofUhg-0KHn_Q0T2jcDzpWnoPg9AARoo7Vw"
+    },
+    {
+      "id": 5,
+      "title": "Escudo malvado",
+      "description": "nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi",
+      "price": 84,
+      "image": "https://i.picsum.photos/id/653/260/260.jpg?hmac=1ihg9jP7zu5NJ8i_6Iy9oMnaEP-fpvQqL-ZT2FsTDqg"
+    },
+    {
+      "id": 6,
+      "title": "Tecido falso",
+      "description": "tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et",
+      "price": 546,
+      "image": "https://i.picsum.photos/id/54/260/260.jpg?hmac=P3jpDeoUtNPyBOsFCVklUBoFypbv7Ycw5wRpXIEXqMo"
+    },
+    {
+      "id": 7,
+      "title": "Hidroavião horroso",
+      "description": "vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla malesuada",
+      "price": 700,
+      "image": "https://i.picsum.photos/id/605/260/260.jpg?hmac=8am8fejDSJvCaDds063HEq_VnZk_2XCZDqjaTRlB9VY"
+    },
+    {
+      "id": 8,
+      "title": "Rolo romântico",
+      "description": "etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor",
+      "price": 766,
+      "image": "https://i.picsum.photos/id/1013/260/260.jpg?hmac=w4kiZhbW1LYFmd7jfZA-uaa229TRqUJ7mWQO-_Fa6xE"
+    },
+    {
+      "id": 9,
+      "title": "Cofre disciplinado",
+      "description": "sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id",
+      "price": 528,
+      "image": "https://i.picsum.photos/id/189/260/260.jpg?hmac=IEO7s0dor6e2_4nPA8_a6cK7QGRbwHTyrCSa9RAnkB0"
+    }
+  ]
+}
