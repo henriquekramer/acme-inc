@@ -56,8 +56,8 @@ export default function Cart(){
       PreçoFinal: total,
     }
 
-    console.log(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
-    alert(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
+    // console.log(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
+    // alert(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
   }
  
   return (
