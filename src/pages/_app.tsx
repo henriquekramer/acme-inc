@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { CartProvider } from '../hooks/useCart'
 import { FavoriteProvider } from '../hooks/useFavorite'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 import '../styles/global.scss'
