@@ -27,7 +27,7 @@
 
 .productList {
   max-width: 1120px;
-  margin: 0 auto;
+  margin: 0 auto 5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
@@ -129,3 +129,11 @@
     }
   }
 }
+
+@media (max-width: 450px) {
+  .productList {
+    padding: 0 1rem;
+  }
+}
+
+ 

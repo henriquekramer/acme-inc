@@ -41,45 +41,47 @@ export default function Favorites(){
       <Head>
         <title>Favoritos | Acme Inc</title>
       </Head>
-       
-      <div className={styles.favoritesTitle}>
-        <h2>Meus produtos favoritos</h2>
-      </div>
 
-      <ul className={styles.productList}>
-        {hasFavorite ? favoriteFormatted.map(product => (
-          <li key={product.id}>
-            <Link href={`/products/${product.id}`}>
-              <a>
-                <img src={product.image} alt={product.title}/>
-              </a>
-            </Link>
-            <strong>{product.title}</strong>
-            <span>
-              {product.priceFormatted}
-              <button 
+      <div className={styles.container}>
+        <div className={styles.favoritesTitle}>
+          <h2>Meus produtos favoritos</h2>
+        </div>
+
+        <ul className={styles.productList}>
+          {hasFavorite ? favoriteFormatted.map(product => (
+            <li key={product.id}>
+              <Link href={`/products/${product.id}`}>
+                <a>
+                  <img src={product.image} alt={product.title}/>
+                </a>
+              </Link>
+              <strong>{product.title}</strong>
+              <span>
+                {product.priceFormatted}
+                <button 
+                  type="button"
+                  data-testid="add-favorite-button"
+                  onClick={() => handleRemoveFavorite(product.id)}
+                >
+                    <FaHeartBroken size={28} />
+                </button>
+              </span>
+              <button
                 type="button"
-                data-testid="add-favorite-button"
-                onClick={() => handleRemoveFavorite(product.id)}
+                data-testid="add-product-button"
+                onClick={() => handleAddProduct(product.id)}
               >
-                  <FaHeartBroken size={28} />
-              </button>
-            </span>
-            <button
-              type="button"
-              data-testid="add-product-button"
-              onClick={() => handleAddProduct(product.id)}
-            >
-              <div data-testid="cart-product-quantity">
-                <AiOutlineShoppingCart size={20} color="#FFF" />
-                {cartItemsAmount[product.id] || 0} 
-              </div>
+                <div data-testid="cart-product-quantity">
+                  <AiOutlineShoppingCart size={20} color="#FFF" />
+                  {cartItemsAmount[product.id] || 0} 
+                </div>
 
-              <span>ADICIONAR AO CARRINHO</span>
-            </button>
-          </li>
-        )) : <h1>Sem produtos favoritados...</h1>}
-      </ul> 
+                <span>ADICIONAR AO CARRINHO</span>
+              </button>
+            </li>
+          )) : <h1>Sem produtos favoritados...</h1>}
+        </ul> 
+      </div> 
     </>
   )
 }
