@@ -7,7 +7,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.brand}>
-          <Link href="#">
+          <Link href="/">
             <a className={styles.logo}>Acme <span>Inc</span>.</a>
           </Link>
           <p>© 2022 Henrique Kramer</p>
