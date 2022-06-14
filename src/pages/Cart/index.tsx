@@ -40,7 +40,26 @@ export default function Cart(){
   function handleRemoveProduct(productId: number) {
     removeProduct(productId)
   }
-  
+
+  function checkout(){
+    const checkoutData = cartFormatted.map(product =>{
+      return {
+        Produto: product.title,
+        Quantidade: product.amount,
+        PreçoUnitário: product.priceFormatted,
+        SubTotal: product.subTotal,
+      }
+    })
+
+    const checkoutFinal = {
+      ...checkoutData,
+      PreçoFinal: total,
+    }
+
+    console.log(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
+    alert(`Resumo da compra formato JSON: ${JSON.stringify(checkoutFinal)}`)
+  }
+ 
   return (
     <>
       <Head>
@@ -118,7 +137,10 @@ export default function Cart(){
           </tbody>
         </table>
         <footer>
-          <button type="button" onClick={()=> alert('Checkout realizado com sucesso!')}>Finalizar pedido</button>
+          <button type="button" onClick={()=> checkout()}
+          >
+            Finalizar pedido
+          </button>
           <div className={styles.total}> 
             <span>TOTAL</span>
             <strong>{total}</strong>
