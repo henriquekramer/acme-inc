@@ -45,6 +45,11 @@ export function FavoriteProvider({ children }: FavoriteProviderProps) {
         updatedFavorite.push(newProduct)
       }
 
+      if(productExists){
+        toast.error('Produto já favoritado antes 👍',{ theme: "colored"});
+        return
+      }
+
       setFavorite(updatedFavorite);
       setCookie(null, 'AcmeIncFavorite', JSON.stringify(updatedFavorite), {
         maxAge: 60 * 60 * 24 * 30, 
