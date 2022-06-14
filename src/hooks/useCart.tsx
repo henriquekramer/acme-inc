@@ -72,9 +72,9 @@ export function CartProvider({ children }: CartProviderProps) {
         path: '/' 
       })
       
-      toast.success('Produto adicionado ao carrinho')
+      toast.success('Produto adicionado ao carrinho 😁',{ theme: "colored"})
     } catch {
-      toast.error('Erro na adição do produto');
+      toast.error('Erro na adição do produto',{ theme: "colored"});
     }
   }
 
@@ -93,9 +93,9 @@ export function CartProvider({ children }: CartProviderProps) {
       } else {
         throw Error();
       }
-
+      toast.success('Produto removido do carrinho 😞',{ theme: "colored"})
     } catch {
-      toast.error('Erro na remoção do produto');
+      toast.error('Erro na remoção do produto',{ theme: "colored"});
     }
   };
 
@@ -112,7 +112,7 @@ export function CartProvider({ children }: CartProviderProps) {
       const stockAmount = stock.data.amount;
 
       if(amount > stockAmount){
-        toast.error('Quantidade solicitada fora de estoque');
+        toast.error('Quantidade solicitada fora de estoque',{ theme: "colored"});
         return;
       }
 
@@ -130,7 +130,7 @@ export function CartProvider({ children }: CartProviderProps) {
       }
 
     } catch {
-      toast.error('Erro na alteração de quantidade do produto');
+      toast.error('Erro na alteração de quantidade do produto',{ theme: "colored"});
     }
   };
 

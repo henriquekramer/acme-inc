@@ -51,9 +51,9 @@ export function FavoriteProvider({ children }: FavoriteProviderProps) {
         path: '/' 
       })
       
-      toast.success('Produto favoritado')
+      toast.success('Produto favoritado 😁',{ theme: "colored"})
     } catch {
-      toast.error('Erro na adição do produto');
+      toast.error('Erro na adição do produto',{ theme: "colored"});
     }
   }
 
@@ -73,9 +73,9 @@ export function FavoriteProvider({ children }: FavoriteProviderProps) {
         throw Error();
       }
 
-      toast.success('Produto removido')
+      toast.success('Produto desfavoritado 😞',{ theme: "colored"})
     } catch {
-      toast.error('Erro na remoção do produto');
+      toast.error('Erro na remoção do produto',{ theme: "colored"});
     }
   };
 
