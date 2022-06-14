@@ -39,7 +39,7 @@ export default function Favorites(){
   return (
     <>
       <Head>
-        <title>Favoritos</title>
+        <title>Favoritos | Acme Inc</title>
       </Head>
        
       <div className={styles.favoritesTitle}>

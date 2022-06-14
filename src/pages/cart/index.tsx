@@ -69,7 +69,6 @@ export default function Cart(){
       </Head>
 
 
-
       <div className={styles.cartTitle}>
         <h2>Meu carrinho</h2>
       </div>
