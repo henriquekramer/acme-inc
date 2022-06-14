@@ -76,3 +76,19 @@
   }
 
 }
+
+@media (max-width: 610px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  .productContent {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+}

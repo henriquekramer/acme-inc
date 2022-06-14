@@ -48,6 +48,9 @@
 }
 
 @media (max-width: 450px) {
+  .footer{
+    padding: 4rem 0.5rem;
+  }
   .social {
     flex-direction: column;
     align-items: center;
