@@ -46,7 +46,7 @@ export function FavoriteProvider({ children }: FavoriteProviderProps) {
       }
 
       if(productExists){
-        toast.error('Produto já favoritado antes 👍',{ theme: "colored"});
+        toast.error('Produto já favoritado 👍',{ theme: "colored"});
         return
       }
 
