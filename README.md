@@ -88,6 +88,9 @@ $ yarn dev
 ```
 **O servidor será inicializado em <http://localhost:3000>**
 
+## 📝 Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo de [LICENÇA](https://github.com/henriquekramer/acme-inc/blob/main/LICENSE) para detalhes.
 
 <p align="center">
   Made with 💜&nbsp; by <a href="https://www.linkedin.com/in/henriquekramer/">Henrique Kramer</a>
