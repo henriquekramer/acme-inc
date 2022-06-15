@@ -2,7 +2,11 @@
 <img src="https://hypeempreendimentos.com.br/_next/image?url=https%3A%2F%2Fhype-cms-bucket.s3.sa-east-1.amazonaws.com%2Flogoescura_b4232a0d5e.webp&w=256&q=75" alt="hype" width="25%"/>
 </h1>
 
-<h3 align="center"> Acme Inc. 🛍️🛒</h3>
+<h3 align="center">
+  <img src="https://user-images.githubusercontent.com/97106134/173827585-c48e5456-cf92-4208-b337-365c20729cea.svg" alt="acmeinc" width="15%"/>
+</h3>
+
+
 
 <p align="center">
   <a href="#-projeto">Projeto</a> |
@@ -19,7 +23,7 @@
 <p align="justify">O aplicativo tem como objetivo buscar dados de produtos em uma API externa, listar na página inicial para os usuários, ter uma página para cada produto, ter a possibilidade
   de favoritar produtos, ter acesso aos produtos favoritados ou fazer filtro pelo nome, adicionar produtos a uma página de carrinho e lá poder fazer um checkout.</p>
  <p align="justify">No projeto utilizei o framework do React Next.Js, por tornar nossa aplicação mais performática e ter uma indexação do conteúdo da página pelos motores de busca melhor.
-  Além disso, criei uma fake API com o My JSON Server para buscar os dados dos produtos, estilizei usando o SASS, usei a lib Nookies para salvar e buscar os dados nos Cookies, React Icons e Typescript.
+  Além disso, criei uma fake API com o My JSON Server para buscar os dados dos produtos, estilizei usando o SASS, usei a lib Nookies para salvar e buscar os dados nos Cookies, React Icons e Typescript. O aplicativo é responsivo para dispositivos móveis.
 </p>
 
 
