@@ -9,6 +9,28 @@
   align-items: center;
   color: var(--text-color-light);
 
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    
+    input {
+      height: 1.3rem;
+      margin-left: 0;
+    }
+
+    input:checked {
+      accent-color: var(--text-color)
+    }
+
+    label {
+      margin-top: 0.25rem;
+      font-weight: bold;
+    }
+  }
+
   input {
     margin-left: 2rem;
     height: 3rem;

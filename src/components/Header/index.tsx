@@ -9,6 +9,10 @@ export function Header() {
   const { cart } = useCart();
   const cartSize = cart.length;
 
+  // const totalItems = cart.reduce((sumTotal, product) => {
+  //   return sumTotal + product.amount;
+  // }, 0)
+
   return (
     <header className={styles.header}>
       <nav className={styles.container}>

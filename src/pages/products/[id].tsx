@@ -1,7 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { useCart } from "../../hooks/useCart";
 import { useFavorite } from "../../hooks/useFavorite";
@@ -36,15 +34,23 @@ export default function Product({ product }: ProductProps){
     addFavorite(id)
   }
 
-  const[isLoading, setIsLoading] = useState(true)
-  const router = useRouter();
-  useEffect(()=> {
-    if(router.isReady){
-      setIsLoading(false)
-    }
-  }, [router.isReady])
+  const cartItemsAmount = cart.reduce((sumAmount, product) => {
+    const newSumAmount = {...sumAmount};
+    newSumAmount[product.id] = product.amount;
 
-  return !isLoading?(
+    return newSumAmount;
+  }, {} as CartItemsAmount)
+
+  // const[isLoading, setIsLoading] = useState(true)
+  // const router = useRouter();
+  // useEffect(()=> {
+  //   if(router.isReady){
+  //     setIsLoading(false)
+  //   }
+  // }, [router.isReady])
+
+  // return !isLoading?(
+    return (
     <>
       <Head>
         <title>Produto | {product.title}</title>
@@ -67,6 +73,7 @@ export default function Product({ product }: ProductProps){
             >
               <div>
                 <AiOutlineShoppingCart size={20} color="#FFF" />
+                {cartItemsAmount[product.id] || 0}
               </div>
 
               <span>ADICIONAR AO CARRINHO</span>
@@ -86,7 +93,8 @@ export default function Product({ product }: ProductProps){
       </div>
 
     </>
-  ) : <p>Carregando...</p>
+  )
+  // ) : <p>Carregando...</p>
 }
 
 export const getStaticProps: GetStaticProps = async(context) => {
