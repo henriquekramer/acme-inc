@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { useCart } from "../../hooks/useCart";
 import { useFavorite } from "../../hooks/useFavorite";
@@ -41,16 +43,15 @@ export default function Product({ product }: ProductProps){
     return newSumAmount;
   }, {} as CartItemsAmount)
 
-  // const[isLoading, setIsLoading] = useState(true)
-  // const router = useRouter();
-  // useEffect(()=> {
-  //   if(router.isReady){
-  //     setIsLoading(false)
-  //   }
-  // }, [router.isReady])
+  const[isLoading, setIsLoading] = useState(true)
+  const router = useRouter();
+  useEffect(()=> {
+    if(router.isReady){
+      setIsLoading(false)
+    }
+  }, [router.isReady])
 
-  // return !isLoading?(
-    return (
+  return !isLoading?(
     <>
       <Head>
         <title>Produto | {product.title}</title>
@@ -93,8 +94,7 @@ export default function Product({ product }: ProductProps){
       </div>
 
     </>
-  )
-  // ) : <p>Carregando...</p>
+  ) : <p>Carregando...</p>
 }
 
 export const getStaticProps: GetStaticProps = async(context) => {
