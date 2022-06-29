@@ -27,7 +27,7 @@ interface ProductProps extends Product{
 
 export default function Product({ product }: ProductProps){
   const { addProduct, cart } = useCart();
-  const { addFavorite } = useFavorite();
+  const { addFavorite, isFavorited } = useFavorite();
 
   function handleAddProduct(id: number) {
     addProduct(id)
@@ -64,9 +64,18 @@ export default function Product({ product }: ProductProps){
             <h3>Descrição</h3>
             <p>{product.description}</p>
             <h3>Valor</h3>
-            <strong>
-              {product.priceFormatted}
-            </strong>
+            <div className={styles.priceFavorite}>
+              <strong>
+                {product.priceFormatted}
+              </strong>
+              <button 
+                  type="button"
+                  data-testid="add-favorite-button"
+                  onClick={() => handleAddFavorite(product.id)}
+                >
+                  {isFavorited(product.id)}
+              </button>
+            </div>
             <button
               type="button"
               data-testid="add-product-button"
@@ -79,16 +88,7 @@ export default function Product({ product }: ProductProps){
 
               <span>ADICIONAR AO CARRINHO</span>
             </button>
-            <button 
-                type="button"
-                data-testid="add-favorite-button"
-                onClick={() => handleAddFavorite(product.id)}
-              >
-              <div>
-                <AiFillHeart size={20} color="#FFF" />
-              </div>
-                <span>ADICIONAR AOS FAVORITOS</span>
-            </button>
+            
           </div>
         </div>
       </div>

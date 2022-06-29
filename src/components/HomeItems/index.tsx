@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { useCart } from "../../hooks/useCart";
 import { useFavorite } from "../../hooks/useFavorite";
 
@@ -22,7 +22,7 @@ interface CartItemsAmount {
 
 export function HomeItems({products}: HomeItemsProps){
   const { addProduct,cart  } = useCart();
-  const { addFavorite } = useFavorite()
+  const { addFavorite, isFavorited } = useFavorite()
 
   const cartItemsAmount = cart.reduce((sumAmount, product) => {
     const newSumAmount = {...sumAmount};
@@ -56,7 +56,7 @@ export function HomeItems({products}: HomeItemsProps){
             data-testid="add-favorite-button"
             onClick={() => handleAddFavorite(product.id)}
           >
-              <AiFillHeart size={28} />
+            {isFavorited(product.id)}
           </button>
         </span>
         <button

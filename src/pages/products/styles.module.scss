@@ -30,11 +30,30 @@
     line-height: 1.7rem;
   }
 
-  strong {
-    font-size: 21px;
-    font-weight: bold;
-  }
+  .priceFavorite {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 
+    strong {
+      font-size: 21px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+      
+    button {
+      background: none;
+      color: var(--base-color);
+      margin-left: 1rem;
+      width: auto;
+      border: none;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
 
   div {
     display: flex;
@@ -52,7 +71,6 @@
     border: 0;
     border-radius: 4px;
     width: 20rem;
-    margin-top: 1rem;
 
     display: flex;
     align-items: center;

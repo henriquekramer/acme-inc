@@ -11,7 +11,7 @@ interface CartItemsAmount {
 
 export function FavoriteItems(){
   const { addProduct, cart } = useCart();
-  const { favorite, removeFavorite} = useFavorite()
+  const { favorite, isFavorited, addFavorite} = useFavorite()
 
   const favoriteFormatted = favorite.map(product => ({
     ...product,
@@ -26,12 +26,12 @@ export function FavoriteItems(){
   }, {} as CartItemsAmount)
 
 
-  function handleRemoveFavorite(productId: number) {
-    removeFavorite(productId)
-  }
-
   function handleAddProduct(id: number) {
     addProduct(id)
+  }
+
+  function handleAddFavorite(id: number){
+    addFavorite(id)
   }
 
   return <>{
@@ -48,9 +48,9 @@ export function FavoriteItems(){
           <button 
             type="button"
             data-testid="add-favorite-button"
-            onClick={() => handleRemoveFavorite(product.id)}
+            onClick={() => handleAddFavorite(product.id)}
           >
-              <FaHeartBroken size={28} />
+              {isFavorited(product.id)}
           </button>
         </span>
         <button
@@ -68,4 +68,8 @@ export function FavoriteItems(){
       </li>
     ))} </>
   
+}
+
+function addFavorite(id: number) {
+  throw new Error("Function not implemented.");
 }
