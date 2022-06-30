@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import { memo } from 'react'
 import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineYoutube } from 'react-icons/ai'
 import styles from './styles.module.scss'
 
-export function Footer() {
+export function FooterComponet() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -22,3 +23,5 @@ export function Footer() {
     </footer>
   )
 }
+
+export const Footer = memo(FooterComponet);
